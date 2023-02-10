@@ -1,0 +1,183 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2023 The New York Times Company. All Rights Reserved.",
+  "has_more": false,
+  "num_results": 10,
+  "results": [
+    {
+      "display_title": "The Black Godfather",
+      "mpaa_rating": "TV-MA",
+      "critics_pick": 0,
+      "byline": "BEN KENIGSBERG",
+      "headline": "‘The Black Godfather’ Review: The Music Executive Who Made It All Happen",
+      "summary_short": "Reginald Hudlin’s documentary about Clarence Avant includes many golden anecdotes.",
+      "publication_date": "2019-06-06",
+      "opening_date": "2019-06-07",
+      "date_updated": "2019-06-14 16:44:01",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/2019/06/06/movies/the-black-godfather-review.html",
+        "suggested_link_text": "Read the New York Times Review of The Black Godfather"
+      },
+      "multimedia": {
+        "type": "mediumThreeByTwo210",
+        "src": "https://static01.nyt.com/images/2019/06/05/arts/blackgodfather1/blackgodfather1-mediumThreeByTwo210.jpg",
+        "height": 140,
+        "width": 210
+      }
+    },
+    {
+      "display_title": "Square Grouper: The Godfathers of Ganja",
+      "mpaa_rating": "R",
+      "critics_pick": 0,
+      "byline": "RACHEL SALTZ",
+      "headline": "Adventures in the Drug Trades",
+      "summary_short": "“Square Grouper” is a documentary about pot smuggling in South Florida in the 1970s and ’80s.",
+      "publication_date": "2011-04-14",
+      "opening_date": "2011-04-15",
+      "date_updated": "2017-11-02 04:18:13",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/2011/04/15/movies/square-grouper-movie-review.html",
+        "suggested_link_text": "Read the New York Times Review of Square Grouper: The Godfathers of Ganja"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "Tokyo Godfathers",
+      "mpaa_rating": "PG-13",
+      "critics_pick": 1,
+      "byline": "A. O. Scott",
+      "headline": "Three Down-and-Outs Rescue a Foundling From the Trash",
+      "summary_short": "Another marvel from Satoshi Kon, whose first two films, &quot;Perfect Blue&quot; and &quot;Millennium Actress,&quot; have already pushed Japanese feature-length animation toward greater realism and wilder fantasy. Loosely based on &quot;3 Godfathers,&quot; John Ford's maudlin 1948 western, this movie, a sweet fable of decency amid the down and out, also has echoes of Chaplin and Capra. Three homeless people — an embittered alcoholic, a middle-aged transvestite and a teenage runaway — find an abandoned baby on Christmas Eve. As they try to reunite the foundling with her parents, they revisit their own unhappy lives, and travel through a city rendered with unbelievable precision and tinted with undeniable love. The potentially sticky sentiments of the story are balanced by a crazily inventive narrative and by Mr. Kon's cool, obsessively detailed visual style. At the end, the skyscrapers of Tokyo wriggle and dance to a Japanese-language techno version of Beethoven's &quot;Ode to Joy,&quot; which pretty much sums up this indescribable, unforgettable movie. — A. O. Scott",
+      "publication_date": "2004-01-16",
+      "opening_date": null,
+      "date_updated": "2017-11-02 04:16:23",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/2004/01/16/movies/film-review-three-down-outs-rescue-foundling-trash-anyone-have-pacifier.html",
+        "suggested_link_text": "Read the New York Times Review of Tokyo Godfathers"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "The Godfather, Part III",
+      "mpaa_rating": "R",
+      "critics_pick": 1,
+      "byline": "Janet Maslin",
+      "headline": "GODFATHER PART III (MOVIE)",
+      "summary_short": "Mafia heir trapped by legacy of past. Coppola's director's cut. Deeply moving.",
+      "publication_date": "1990-12-25",
+      "opening_date": "1990-12-25",
+      "date_updated": "2017-11-02 04:17:42",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/1990/12/25/movies/review-film-the-corleones-try-to-go-straight-in-the-godfather-part-iii.html",
+        "suggested_link_text": "Read the New York Times Review of The Godfather, Part III"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "The Godfather, Part II",
+      "mpaa_rating": "R",
+      "critics_pick": 1,
+      "byline": "VINCENT CANBY",
+      "headline": "Godfather: Part II, The (Movie)",
+      "summary_short": "",
+      "publication_date": "1974-12-13",
+      "opening_date": "1974-12-20",
+      "date_updated": "2017-11-02 04:17:27",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/1974/12/13/archives/godfather-part-ii-is-hard-to-define-the-cast.html",
+        "suggested_link_text": "Read the New York Times Review of The Godfather, Part II"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "The Black Godfather",
+      "mpaa_rating": "R",
+      "critics_pick": 0,
+      "byline": "NORA SAYRE",
+      "headline": "Black Godfather, The (Movie)",
+      "summary_short": "",
+      "publication_date": "1974-09-04",
+      "opening_date": null,
+      "date_updated": "2017-11-02 04:16:03",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/1974/09/04/archives/screen-drug-traffickers-vie-in-black-godfather.html",
+        "suggested_link_text": "Read the New York Times Review of The Black Godfather"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "The Godfather",
+      "mpaa_rating": "R",
+      "critics_pick": 1,
+      "byline": "Vincent Canby",
+      "headline": "THE GODFATHER (MOVIE)",
+      "summary_short": "Puzo's Mafioso novel. Scalding and memorable.",
+      "publication_date": "1972-03-16",
+      "opening_date": "1972-03-24",
+      "date_updated": "2017-11-02 04:17:26",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/1972/03/16/archives/moving-and-brutal-godfather-bows.html",
+        "suggested_link_text": "Read the New York Times Review of The Godfather"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "Three Godfathers",
+      "mpaa_rating": "Passed",
+      "critics_pick": 0,
+      "byline": "BOSLEY CROWTHER",
+      "headline": "Three Godfathers",
+      "summary_short": "Outlaw trio and abandoned child. Typical, expert Ford western.",
+      "publication_date": "1949-03-04",
+      "opening_date": "1948-12-01",
+      "date_updated": "2017-11-02 04:17:11",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/1949/03/04/archives/the-screen-in-review-john-wayne-harry-carey-jr-in-three-godfathers.html",
+        "suggested_link_text": "Read the New York Times Review of Three Godfathers"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "Miracle in the Sand",
+      "mpaa_rating": "Passed",
+      "critics_pick": 0,
+      "byline": "J.T.M.",
+      "headline": "Three Godfathers, The",
+      "summary_short": "Thieves reluctantly care for orphan. Tragic horse opera.",
+      "publication_date": "1936-03-09",
+      "opening_date": "1936-03-06",
+      "date_updated": "2017-11-02 04:16:58",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/1936/03/09/archives/at-the-rialto.html",
+        "suggested_link_text": "Read the New York Times Review of Miracle in the Sand"
+      },
+      "multimedia": null
+    },
+    {
+      "display_title": "El Compadre Mendoza",
+      "mpaa_rating": "",
+      "critics_pick": 0,
+      "byline": "Harry T. Smith",
+      "headline": "Compadre Mendoza, El",
+      "summary_short": "Landowner survives Mexican Revolution by supporting both sides. Directed by Fernando de Fuentes.",
+      "publication_date": "1934-11-19",
+      "opening_date": "1934-11-18",
+      "date_updated": "2017-11-02 04:16:55",
+      "link": {
+        "type": "article",
+        "url": "https://www.nytimes.com/1934/11/19/archives/a-mexican-tragedy.html",
+        "suggested_link_text": "Read the New York Times Review of El Compadre Mendoza"
+      },
+      "multimedia": null
+    }
+  ]
+}
