@@ -9,15 +9,17 @@ import com.example.nytmovies.models.Result
 import com.squareup.picasso.Picasso
 
 class MovieAdpter (private val movies: List<Result>):
-RecyclerView.Adapter<MovieAdpter.MoviewViewHolder>()
-{
+RecyclerView.Adapter<MovieAdpter.MoviewViewHolder>() {
+
+    lateinit var onItemClick: ((String) -> Unit)
+
     inner class MoviewViewHolder(val binding: MovieLayoutBinding, val context: Context): RecyclerView.ViewHolder(binding.root) {
         fun bind(
             movies : Result
         ){
             binding.movieTitle.text = movies.display_title
             binding.movieDescription.text = movies.summary_short
-            Picasso.get().load(movies.multimedia.src).into(binding.movieImage)
+            Picasso.get().load(movies?.multimedia?.src).into(binding.movieImage)
             }
 
     }
@@ -29,7 +31,11 @@ RecyclerView.Adapter<MovieAdpter.MoviewViewHolder>()
     }
 
     override fun onBindViewHolder(holder: MoviewViewHolder, position: Int) {
-        holder.bind(movies[position])
+     holder.bind (movies[position])
+
+        holder.itemView.setOnClickListener {
+            onItemClick.invoke(movies[position].display_title)
+        }
     }
 
     override fun getItemCount(): Int = movies.size

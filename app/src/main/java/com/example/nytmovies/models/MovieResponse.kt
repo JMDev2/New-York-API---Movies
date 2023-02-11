@@ -1,5 +1,9 @@
 package com.example.nytmovies.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+
 data class MovieResponse(
     val results: List<Result>,
     val copyright: String,
@@ -7,6 +11,7 @@ data class MovieResponse(
     val num_results: Int,
     val status: String
 )
+
 
 data class Result(
     val byline: String,
@@ -21,6 +26,7 @@ data class Result(
     val publication_date: String,
     val summary_short: String
 )
+
 
 data class Link(
     val suggested_link_text: String,

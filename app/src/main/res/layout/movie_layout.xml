@@ -23,9 +23,9 @@
 
             <ImageView
                 android:id="@+id/movie_image"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:src="@drawable/newsapp">
 
             </ImageView>
@@ -40,7 +40,8 @@
                     android:id="@+id/movie_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="Movie Title"
@@ -51,10 +52,10 @@
 
                 <TextView
                     android:id="@+id/movie_description"
-                    android:layout_width="145dp"
-                    android:layout_height="185dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="83dp"
                     android:ellipsize="end"
-                    android:maxLines="3"
+                    android:maxLines="4"
                     android:text="Movie Description">
 
                 </TextView>

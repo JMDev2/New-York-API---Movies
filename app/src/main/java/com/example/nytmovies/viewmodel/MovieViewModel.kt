@@ -16,11 +16,11 @@ import javax.inject.Inject
 class MovieViewModel @Inject constructor(private val repository: MovieRepository): ViewModel(){
     private var movieItemLiveData = MutableLiveData<Resource<MovieResponse?>>()
     init {
-        getMovies()
+        getMovies("godfather")
     }
 
-   fun getMovies() = viewModelScope.launch{
-        repository.getMovies().collect(){ response ->
+   fun getMovies(title: String) = viewModelScope.launch{
+        repository.getMovies(title).collect(){ response ->
             movieItemLiveData.postValue(response)
         }
 

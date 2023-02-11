@@ -51,7 +51,7 @@ class MovieApiImplTest {
             .setBody(response)
         mockWebServer.enqueue(expectedResponse)
 
-        val actualResponse = movieApiImpl.getAllMovies()
+        val actualResponse = movieApiImpl.getAllMovies("Godfather")
         assertEquals(Status.SUCCESS, actualResponse.status)
     }
 
@@ -60,7 +60,7 @@ class MovieApiImplTest {
         val expectedResponse = MockResponse()
             .setResponseCode(HttpURLConnection.HTTP_INTERNAL_ERROR)
         mockWebServer.enqueue(expectedResponse)
-        val actualResponse = movieApiImpl.getAllMovies()
+        val actualResponse = movieApiImpl.getAllMovies("Godfather")
         assertEquals(Status.ERROR, actualResponse.status)
     }
 }

@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class MovieRepository @Inject constructor(private val api: MovieApi){
-    suspend fun getMovies() = flow {
+    suspend fun getMovies(title: String) = flow {
         emit(Resource.loading(null))
-        emit(api.getAllMovies())
+        emit(api.getAllMovies(title))
     }.flowOn(Dispatchers.IO)
 }

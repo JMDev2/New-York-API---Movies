@@ -9,5 +9,24 @@
         android:id="@+id/movieFragment"
         android:name="com.example.nytmovies.fragments.MovieFragment"
         android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" />
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_movieFragment_to_newsDetailsFragment"
+            app:destination="@id/newsDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailsFragment"
+        android:name="com.example.nytmovies.NewsDetailsFragment"
+        android:label="fragment_news_details"
+        tools:layout="@layout/fragment_news_details" >
+        <action
+            android:id="@+id/action_newsDetailsFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+
+        <argument
+            android:name="itemId"
+            app:argType="string"
+            android:defaultValue=""/>
+
+    </fragment>
 </navigation>

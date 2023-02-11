@@ -45,11 +45,11 @@ class MovieViewModelTest {
     fun `for multiple movies`(){
         val jsonResponse = Gson().fromJson(response, MovieResponse::class.java)
         val responseResource = Resource.success(jsonResponse)
-        coEvery { movieRepository.getMovies() } returns flow {
+        coEvery { movieRepository.getMovies("Godfather") } returns flow {
             emit (Resource.loading(null))
             emit(responseResource)
         }
-        movieViewModel.getMovies()
+        movieViewModel.getMovies("Godfather")
         val movies = movieViewModel.observeMovieLiveData().value
         assertEquals(responseResource, movies)
     }

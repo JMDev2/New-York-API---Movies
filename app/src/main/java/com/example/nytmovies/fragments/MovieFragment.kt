@@ -6,8 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.nytmovies.NewsDetailsFragment
+import com.example.nytmovies.R
 import com.example.nytmovies.adapter.MovieAdpter
 import com.example.nytmovies.databinding.FragmentMovieBinding
 import com.example.nytmovies.utils.Status
@@ -22,11 +27,6 @@ class MovieFragment : Fragment() {
 
     private lateinit var binding: FragmentMovieBinding
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,12 +47,27 @@ class MovieFragment : Fragment() {
         observeMovies()
     }
 
+
+
+
+    private fun onMovieClick(){
+        movieAdpter.onItemClick = { item ->
+
+            val action = MovieFragmentDirections.actionMovieFragmentToNewsDetailsFragment(item)
+            requireView().findNavController().navigate(action)
+
+    }
+    }
+
     private fun setRecyclerView() {
         binding.movierecyclerView.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             adapter = movieAdpter
         }
     }
+
+
+
 
     private fun observeMovies() {
         viewModel.observeMovieLiveData().observe(
@@ -62,27 +77,28 @@ class MovieFragment : Fragment() {
                 Status.SUCCESS ->{
                     val response = movieResponse.data?.results
                     //progressbar
+                    binding.progressBar.visibility = View.GONE
                     response?.let { response
                         movieAdpter = MovieAdpter(response)
-                        //binding.movierecyclerView.visibility = View.VISIBLE
-
+                        binding.movierecyclerView.visibility = View.VISIBLE
 
                         setRecyclerView()
+                        onMovieClick()
                     }
                 }
                 // if error state
                 Status.ERROR -> {
                     // TODO Dismiss progress dialog
                     // TODO Show error message in dialog.
-                   // binding.progressBar2.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(requireContext(), movieResponse.message, Toast.LENGTH_LONG)
                         .show()
                 }
                 // if still loading
                 Status.LOADING -> {
                     // TODO Show progress dialog
-                   // binding.progressBar2.visibility = View.VISIBLE
-                   // binding.movierecyclerView.visibility = View.GONE
+                    binding.progressBar.visibility = View.VISIBLE
+                    binding.movierecyclerView.visibility = View.GONE
                 }
             }
         }
