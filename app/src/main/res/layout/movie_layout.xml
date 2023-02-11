@@ -46,6 +46,7 @@
                     android:maxLines="1"
                     android:text="Movie Title"
                     android:textColor="#000000"
+                    android:fontFamily="@font/poppins"
                     android:textSize="18sp">
 
                 </TextView>
@@ -55,12 +56,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="83dp"
                     android:ellipsize="end"
+                    android:fontFamily="@font/poppins"
                     android:maxLines="4"
                     android:text="Movie Description">
 
                 </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_italic"
+                    android:text="Read more..."
+                    android:textColor="#0073cf"/>
             </LinearLayout>
+
         </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

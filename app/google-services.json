@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "442677177720",
+    "project_id": "nytmovies-435e4",
+    "storage_bucket": "nytmovies-435e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442677177720:android:a7eb1723874cb6f80dec8d",
+        "android_client_info": {
+          "package_name": "com.example.nytmovies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442677177720-ibgi7q0qpne3k8g6gmp0d8f5npmb3mdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxu9WQn6FeB0l1Wr-OuAXI72YAjJ6Y8IM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442677177720-ibgi7q0qpne3k8g6gmp0d8f5npmb3mdk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

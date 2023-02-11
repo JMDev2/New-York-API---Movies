@@ -1,7 +1,8 @@
-package com.example.nytmovies
+package com.example.nytmovies.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.nytmovies.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

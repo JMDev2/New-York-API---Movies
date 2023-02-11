@@ -61,6 +61,12 @@
 
                 </TextView>
 
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
                 <TextView
                     android:id="@+id/descriptionDestails"
                     android:layout_width="match_parent"
@@ -73,26 +79,87 @@
 
                 </TextView>
 
-                <TextView
-                    android:id="@+id/mpaa_rating"
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="TextView" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Movie Rating: "/>
+
+                    <TextView
+                        android:id="@+id/mpaa_rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="mpaa rating" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date Published: "/>
+
+
+                    <TextView
+                        android:id="@+id/publication_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="publication date" />
+                </LinearLayout>
+
+
 
                 <TextView
-                    android:id="@+id/publication_date"
+                    android:id="@+id/textView5"
                     android:layout_width="match_parent"
+                    android:layout_marginBottom="4dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="TextView" />
+                    android:text="For more details about this movie, Please visit: "
+                    android:textStyle="bold"
+                    android:alpha="8"/>
 
-                <TextView
-                    android:id="@+id/url"
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="TextView" />
+                    android:elevation="5dp"
+                    android:layout_marginBottom="15dp">
+                    <TextView
+                        android:id="@+id/url"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="url"
+                        android:autoLink="web"/>
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Button" />
 
 
             </LinearLayout>
