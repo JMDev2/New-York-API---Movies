@@ -53,7 +53,7 @@ class NewsDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getMovieDetails(args.itemId)
+        getMovieDetails(args.itemId) //passing the args
 
 
 
@@ -71,9 +71,10 @@ class NewsDetailsFragment : Fragment() {
                         //TODO Dismiss progress dialog
 
                         val response = movies.data?.results
-                        binding.progressBar2.visibility = View.GONE
+                        binding.progressBar2.visibility = View.VISIBLE
 
                         response?.let {
+                            binding.progressBar2.visibility = View.GONE
                             binding.newFragment.visibility = View.VISIBLE
 
                             var response = movies.data.results.find { result ->
@@ -82,6 +83,9 @@ class NewsDetailsFragment : Fragment() {
                                 binding.titleDestails.text = response?.display_title
                                 binding.descriptionDestails.text = response?.summary_short
                                 Picasso.get().load(response?.multimedia?.src).into(binding.imageView)
+                                binding.url.text = response?.link?.url
+                                binding.mpaaRating.text = response?.mpaa_rating
+                                binding.publicationDate.text = response?.publication_date
 
 
                         }
