@@ -1,27 +1,23 @@
 package com.example.nytmovies
 
 import android.os.Bundle
-
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.example.nytmovies.adapter.MovieAdpter
-import com.example.nytmovies.api.MovieApiImpl
 import com.example.nytmovies.api.MovieApiService
 import com.example.nytmovies.databinding.FragmentNewsDetailsBinding
-import com.example.nytmovies.models.MovieResponse
 import com.example.nytmovies.models.Result
 import com.example.nytmovies.utils.Status
 import com.example.nytmovies.viewmodel.MovieViewModel
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
-import retrofit2.Call
-import java.util.*
+import org.json.JSONObject
 
 @AndroidEntryPoint
 class NewsDetailsFragment : Fragment() {
@@ -34,6 +30,9 @@ class NewsDetailsFragment : Fragment() {
 
     private val args: NewsDetailsFragmentArgs by navArgs()
     private var result: Result? = null
+
+    private lateinit var database: DatabaseReference
+
 
 
 
@@ -58,26 +57,7 @@ class NewsDetailsFragment : Fragment() {
 
         getMovieDetails(args.itemId) //passing the args
 
-        binding.button.setOnClickListener {
-            val movieRef = FirebaseDatabase
-                .getInstance()
-                .getReference("movie")
-
-            val pushRef = movieRef.push()
-            val pushId = pushRef.key
-            pushRef.setValue(result)
-
-//            newsRef.push().setValue(mDatum);
-            Toast.makeText(context, "News Saved", Toast.LENGTH_SHORT).show()
-
-        }
-
-
     }
-
-
-
-
 
         fun getMovieDetails(title: String){
             viewModel.getMovies(title)
@@ -89,15 +69,14 @@ class NewsDetailsFragment : Fragment() {
                         //TODO Dismiss progress dialog
 
                         val response = movies.data?.results
-                        binding.progressBar2.visibility = View.VISIBLE
-
+                        binding.progressBar2.visibility = View.GONE
                         response?.let {
-                            binding.progressBar2.visibility = View.GONE
                             binding.newFragment.visibility = View.VISIBLE
 
                             var response = movies.data.results.find { result ->
                                 result.display_title == title
                             }
+
                                 binding.titleDestails.text = response?.display_title
                                 binding.descriptionDestails.text = response?.summary_short
                                 Picasso.get().load(response?.multimedia?.src).into(binding.imageView)
@@ -112,8 +91,17 @@ class NewsDetailsFragment : Fragment() {
 
                                 binding.publicationDate.text = response?.publication_date
 
+                            binding.button.setOnClickListener {
 
+                                val database = FirebaseDatabase.getInstance().reference
+
+                                database.child("result").child(id.toString()).child("result").push().setValue(response)
+
+                                Toast.makeText(context, "News Saved", Toast.LENGTH_SHORT).show()
+
+                            }
                         }
+
                     }
                     Status.ERROR -> {
                         binding.progressBar2.visibility = View.GONE
@@ -129,6 +117,9 @@ class NewsDetailsFragment : Fragment() {
             }
         }
 }
+
+
+
 
 
 

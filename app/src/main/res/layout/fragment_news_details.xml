@@ -23,7 +23,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:visibility="visible">
 
 
             <ImageView
@@ -32,6 +33,7 @@
                 android:layout_height="252dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/newsapp"
+                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -43,6 +45,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:orientation="vertical"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,16 +96,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Movie Rating: "/>
+                        android:text="@string/movie_rating" />
 
                     <TextView
                         android:id="@+id/mpaa_rating"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:text="mpaa rating" />
+                        android:text="@string/mpaa_rating" />
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -113,7 +115,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Date Published: "/>
+                        android:text="@string/date_published" />
 
 
                     <TextView
@@ -121,19 +123,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:text="publication date" />
+                        android:text="@string/publication_date" />
                 </LinearLayout>
-
 
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
-                    android:layout_marginBottom="4dp"
                     android:layout_height="wrap_content"
-                    android:text="For more details about this movie, Please visit: "
-                    android:textStyle="bold"
-                    android:alpha="8"/>
+                    android:layout_marginBottom="4dp"
+                    android:alpha="8"
+                    android:text="@string/for_more_details_about_this_movie_please_visit"
+                    android:textStyle="bold" />
 
                 <View
                     android:id="@+id/divider3"
@@ -144,22 +145,24 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:elevation="5dp"
-                    android:layout_marginBottom="15dp">
+                    android:layout_marginBottom="15dp"
+                    android:elevation="5dp">
+
                     <TextView
                         android:id="@+id/url"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:text="url"
-                        android:autoLink="web"/>
+                        android:autoLink="web"
+                        android:text="url" />
                 </androidx.cardview.widget.CardView>
 
                 <Button
                     android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:text="@string/save_the_movie"
+                    android:visibility="visible" />
 
 
             </LinearLayout>
@@ -169,6 +172,7 @@
                 style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

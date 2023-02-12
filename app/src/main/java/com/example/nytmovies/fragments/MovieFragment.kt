@@ -52,22 +52,22 @@ class MovieFragment : Fragment() {
 
     private fun onMovieClick(){
         movieAdpter.onItemClick = { item ->
-
-            val action = MovieFragmentDirections.actionMovieFragmentToNewsDetailsFragment(item)
+           val action = MovieFragmentDirections.actionMovieFragmentToNewsDetailsFragment(item)
             requireView().findNavController().navigate(action)
+
+
+
 
     }
     }
 
     private fun setRecyclerView() {
         binding.movierecyclerView.apply {
+
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             adapter = movieAdpter
         }
     }
-
-
-
 
     private fun observeMovies() {
         viewModel.observeMovieLiveData().observe(
