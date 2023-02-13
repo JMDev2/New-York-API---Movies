@@ -97,7 +97,7 @@ class NewsDetailsFragment : Fragment() {
 
                                 database.child("result").child(id.toString()).child("result").push().setValue(response)
 
-                                Toast.makeText(context, "News Saved", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "Movie Saved", Toast.LENGTH_SHORT).show()
 
                             }
                         }

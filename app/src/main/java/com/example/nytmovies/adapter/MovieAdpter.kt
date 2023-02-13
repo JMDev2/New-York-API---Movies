@@ -32,7 +32,6 @@ RecyclerView.Adapter<MovieAdpter.MoviewViewHolder>() {
 
     override fun onBindViewHolder(holder: MoviewViewHolder, position: Int) {
      holder.bind (movies[position])
-
         holder.itemView.setOnClickListener {
             onItemClick.invoke(movies[position].display_title)
         }

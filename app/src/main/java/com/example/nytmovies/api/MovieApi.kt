@@ -5,4 +5,6 @@ import com.example.nytmovies.utils.Resource
 
 interface MovieApi {
     suspend fun getAllMovies(title: String): Resource<MovieResponse?>
+
+
 }
