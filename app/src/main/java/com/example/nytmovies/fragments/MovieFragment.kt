@@ -1,6 +1,7 @@
 package com.example.nytmovies.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.view.Menu
 import android.widget.SearchView
@@ -12,9 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nytmovies.R
 import com.example.nytmovies.adapter.MovieAdpter
 import com.example.nytmovies.databinding.FragmentMovieBinding
+import com.example.nytmovies.models.Result
 import com.example.nytmovies.utils.Status
 import com.example.nytmovies.viewmodel.MovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.math.log
 
 @AndroidEntryPoint
 class MovieFragment : Fragment() {
@@ -25,7 +30,7 @@ class MovieFragment : Fragment() {
 
     private lateinit var binding: FragmentMovieBinding
 
-    var displaylist: MutableList<String> = ArrayList()
+    var filteredMovies: List<Result> = ArrayList()
 
 
     override fun onCreateView(
@@ -36,8 +41,6 @@ class MovieFragment : Fragment() {
         binding = FragmentMovieBinding.inflate(inflater, container, false)
 
         return binding.root
-
-
 
 
     }
@@ -58,40 +61,30 @@ class MovieFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu, menu)
         val searchItem = menu.findItem(R.id.action_search)
-        val searchView = searchItem.actionView as  SearchView
+        val searchView = searchItem.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                // Handle search query
-
                 return false
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                // Handle text change
-                filterMovies(newText)
-
+                filterText(newText)
                 return false
             }
         })
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    private fun filterMovies(text: String) {
-        val filterMovies: ArrayList<com.example.nytmovies.models.Result> = ArrayList()
-        for (movie in movieAdpter.)
-    }
 
-
-    private fun onMovieClick(){
+    private fun onMovieClick() {
         movieAdpter.onItemClick = { item ->
-           val action = MovieFragmentDirections.actionMovieFragmentToNewsDetailsFragment(item)
+            val action = MovieFragmentDirections.actionMovieFragmentToNewsDetailsFragment(item)
             requireView().findNavController().navigate(action)
-    }
+        }
     }
 
     private fun setRecyclerView() {
         binding.movierecyclerView.apply {
-
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             adapter = movieAdpter
         }
@@ -103,13 +96,14 @@ class MovieFragment : Fragment() {
     private fun observeMovies() {
         viewModel.observeMovieLiveData().observe(
             viewLifecycleOwner
-        ){ movieResponse ->
-            when (movieResponse.status){
-                Status.SUCCESS ->{
+        ) { movieResponse ->
+            when (movieResponse.status) {
+                Status.SUCCESS -> {
                     val response = movieResponse.data?.results
                     //progressbar
                     binding.progressBar.visibility = View.GONE
-                    response?.let { response
+                    response?.let { response ->
+                        filteredMovies = response
                         movieAdpter = MovieAdpter(response)
                         binding.movierecyclerView.visibility = View.VISIBLE
 
@@ -135,8 +129,18 @@ class MovieFragment : Fragment() {
         }
     }
 
+    private fun filterText(text: String) {
+        val theFilteredMovies: List<Result> = ArrayList()
+        for (movie in filteredMovies) {
+            if (movie.display_title.lowercase(Locale.ROOT).contains(text.lowercase(Locale.ROOT))) {
+                (theFilteredMovies as ArrayList<Result>).add(movie)
+            }
+        }
+        movieAdpter = MovieAdpter(theFilteredMovies)
+        binding.movierecyclerView.adapter = movieAdpter
+        movieAdpter.notifyDataSetChanged()
 
-
+    }
 
 }
 
