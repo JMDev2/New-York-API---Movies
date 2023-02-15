@@ -68,7 +68,7 @@ class MovieFragment : Fragment() {
 
             override fun onQueryTextChange(newText: String): Boolean {
                 // Handle text change
-                filterMovies(newText)
+                //filterMovies(newText)
 
                 return false
             }
@@ -76,10 +76,11 @@ class MovieFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    private fun filterMovies(text: String) {
-        val filterMovies: ArrayList<com.example.nytmovies.models.Result> = ArrayList()
-        for (movie in movieAdpter.)
-    }
+//    private fun filterMovies(text: String) {
+//        val filterMovies: ArrayList<com.example.nytmovies.models.Result> = ArrayList()
+//        for (movie in movieAdpter.)
+//    }
+
 
 
     private fun onMovieClick(){
@@ -91,7 +92,6 @@ class MovieFragment : Fragment() {
 
     private fun setRecyclerView() {
         binding.movierecyclerView.apply {
-
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             adapter = movieAdpter
         }

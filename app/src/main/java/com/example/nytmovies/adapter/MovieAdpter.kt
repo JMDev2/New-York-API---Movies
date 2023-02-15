@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nytmovies.databinding.MovieLayoutBinding
 import com.example.nytmovies.models.Result
 import com.squareup.picasso.Picasso
+import javax.inject.Inject
 
-class MovieAdpter (private val movies: List<Result>):
+class MovieAdpter @Inject constructor(private val movies: List<Result>):
 RecyclerView.Adapter<MovieAdpter.MoviewViewHolder>() {
 
     lateinit var onItemClick: ((String) -> Unit)

@@ -20,6 +20,10 @@ data class Result(
     val summary_short: String
 )
 
+fun Result() {
+    // Default constructor required for calls to DataSnapshot.getValue(Result.class)
+}
+
 
 
 data class Link(
