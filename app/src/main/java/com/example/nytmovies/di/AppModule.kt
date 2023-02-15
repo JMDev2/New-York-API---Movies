@@ -1,8 +1,5 @@
 package com.example.nytmovies.di
 
-import android.widget.SearchView
-import androidx.appcompat.app.AppCompatActivity
-import com.example.nytmovies.R
 import com.example.nytmovies.api.MovieApi
 import com.example.nytmovies.api.MovieApiImpl
 import com.example.nytmovies.api.MovieApiService
@@ -20,7 +17,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
 
     @Singleton
     @Provides

@@ -6,22 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.nytmovies.adapter.MovieAdpter
 import com.example.nytmovies.api.MovieApiService
 import com.example.nytmovies.databinding.FragmentNewsDetailsBinding
-import com.example.nytmovies.fragments.FragmentA
-import com.example.nytmovies.fragments.MovieFragment
 import com.example.nytmovies.models.Result
 import com.example.nytmovies.utils.Status
 import com.example.nytmovies.viewmodel.MovieViewModel
-import com.google.firebase.database.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
-import org.json.JSONObject
 
 @AndroidEntryPoint
 class NewsDetailsFragment : Fragment() {
@@ -29,12 +24,8 @@ class NewsDetailsFragment : Fragment() {
     private lateinit var binding: FragmentNewsDetailsBinding
     private lateinit var item: Result
     private val viewModel: MovieViewModel by viewModels()
-
     private lateinit var movieApiService: MovieApiService
-
     private val args: NewsDetailsFragmentArgs by navArgs()
-
-
     private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,43 +33,21 @@ class NewsDetailsFragment : Fragment() {
 
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentNewsDetailsBinding.inflate(inflater, container, false)
-        binding.bookmarks.setOnClickListener {
-
-        }
 
 
         return binding.root
     }
 
-//    private fun setRecyclerView() {
-//        binding.bookmarksRecyclerview.apply {
-//
-//            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-//            adapter = movieAdpter
-//
-//            userArrayList = arrayListOf<com.example.nytmovies.models.Result>()
-//        }
-//
-//
-//    }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         getMovieDetails(args.itemId) //passing the args
-
-    }
-
-    private fun openBootkmarks(){
-
 
     }
 
@@ -140,29 +109,6 @@ class NewsDetailsFragment : Fragment() {
             }
         }
 
-//    private fun getUserData() {
-//        database = FirebaseDatabase.getInstance().getReference("result")
-//        database.addValueEventListener(object : ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//
-//                if (snapshot.exists()){
-//                    for (resultSnapshot in snapshot.children){
-//                        val result = resultSnapshot.getValue(Result::class.java)
-//                        userArrayList.add(result!!)
-//                    }
-//                    binding.bookmarksRecyclerview.adapter = MovieAdpter(userArrayList)
-//                }
-//
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//
-//        })
-//
-//
-//    }
 }
 
 

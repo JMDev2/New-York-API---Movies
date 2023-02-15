@@ -15,10 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieViewModel @Inject constructor(private val repository: MovieRepository): ViewModel(){
     private var movieItemLiveData = MutableLiveData<Resource<MovieResponse?>>()
-    private val _results = MutableLiveData<List<com.example.nytmovies.models.Result>>()
 
-    val results: LiveData<List<com.example.nytmovies.models.Result>>
-        get() = _results
     init {
         getMovies("godfather")
     }
@@ -27,9 +24,7 @@ class MovieViewModel @Inject constructor(private val repository: MovieRepository
         repository.getMovies(title).collect(){ response ->
             movieItemLiveData.postValue(response)
         }
-
-    }
-
+   }
     fun observeMovieLiveData(): LiveData<Resource<MovieResponse?>>{
         return movieItemLiveData
     }

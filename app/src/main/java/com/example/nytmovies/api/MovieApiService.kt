@@ -7,8 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface MovieApiService {
-
-
     @GET("reviews/search.json")
     suspend fun getMovies(
         @Query("godfather") title: String,

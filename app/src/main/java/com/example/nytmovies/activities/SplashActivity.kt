@@ -29,7 +29,6 @@ class SplashActivity : AppCompatActivity() {
         }, 2000) // 3000 is the delayed time in milliseconds.
     }
 
-
     private fun rotateAnimation() {
         val textview = findViewById<TextView>(R.id.textView4)
 
