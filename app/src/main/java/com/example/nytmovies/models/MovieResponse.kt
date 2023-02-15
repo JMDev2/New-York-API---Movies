@@ -11,24 +11,30 @@ data class MovieResponse(
 
 
 data class Result(
-    val id: Int,
-    val display_title: String,
-    val link: Link,
-    val mpaa_rating: String,
-    val multimedia: Multimedia,
-    val publication_date: String,
-    val summary_short: String
-)
+    val id: Int = 0,
+    val display_title: String = "",
+    val link: Link = Link("gfhns"),
+    val mpaa_rating: String = "",
+    val multimedia: Multimedia = Multimedia("ngf"),
+    val publication_date: String = "",
+    val summary_short: String = ""
+) {
+    // Empty constructor
+    constructor() : this(0, "", Link("xfh"), "", Multimedia("ghs"), "", "")
+
+    constructor(id: Int, display_title: String, link: Link) : this(id, display_title, link, "", Multimedia("hj"), "", "")
+}
 
 data class Link(
-    val suggested_link_text: String,
-    val type: String,
     val url: String
-)
+){
+    constructor() : this("")
+}
 
 data class Multimedia(
-    val height: Int,
-    val src: String,
-    val type: String,
-    val width: Int
-)
+    val src: String
+) {
+    constructor() : this("")
+
+
+}

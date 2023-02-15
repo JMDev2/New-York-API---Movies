@@ -1,4 +1,4 @@
-package com.example.nytmovies
+package com.example.nytmovies.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.example.nytmovies.activities.BookmarksActivity
 import com.example.nytmovies.activities.LaunchActivity
 import com.example.nytmovies.api.MovieApiService
 import com.example.nytmovies.databinding.FragmentNewsDetailsBinding
@@ -49,7 +50,7 @@ class NewsDetailsFragment : Fragment() {
         return binding.root
     }
     fun openLaunch(){
-        val intent = Intent(activity, LaunchActivity::class.java)
+        val intent = Intent(activity, BookmarksActivity::class.java)
         startActivity(intent)
 
     }
@@ -97,6 +98,7 @@ class NewsDetailsFragment : Fragment() {
                             binding.save.setOnClickListener {
 
                                 val database = FirebaseDatabase.getInstance().reference
+
 
                                 database.child("result").child("result").push().setValue(response)
 
