@@ -78,6 +78,7 @@ class MovieFragment : Fragment() {
         movieAdpter.onItemClick = { item ->
             val action = MovieFragmentDirections.actionMovieFragmentToNewsDetailsFragment(item)
             requireView().findNavController().navigate(action)
+
         }
     }
 

@@ -15,7 +15,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        rotateAnimation()
+        //rotateAnimation()
 
 
         window.setFlags(
@@ -25,17 +25,18 @@ class SplashActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, LaunchActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.right, R.anim.left)
             finish()
-        }, 2000) // 3000 is the delayed time in milliseconds.
+        }, 3000) // 3000 is the delayed time in milliseconds.
     }
 
-    private fun rotateAnimation() {
-        val textview = findViewById<TextView>(R.id.textView4)
-
-        val animation = AnimationUtils.loadAnimation(this, R.anim.ani)
-        textview.startAnimation(animation)
-
-
-    }
+//    private fun rotateAnimation() {
+//        val textview = findViewById<TextView>(R.id.text)
+//
+//        val animation = AnimationUtils.loadAnimation(this, R.anim.ani)
+//        textview.startAnimation(animation)
+//
+//
+//    }
 
 }

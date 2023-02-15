@@ -1,5 +1,6 @@
 package com.example.nytmovies
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.example.nytmovies.activities.LaunchActivity
 import com.example.nytmovies.api.MovieApiService
 import com.example.nytmovies.databinding.FragmentNewsDetailsBinding
 import com.example.nytmovies.models.Result
@@ -17,6 +19,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class NewsDetailsFragment : Fragment() {
@@ -39,10 +42,18 @@ class NewsDetailsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentNewsDetailsBinding.inflate(inflater, container, false)
-
+        binding.bookmark.setOnClickListener {
+            openLaunch()
+        }
 
         return binding.root
     }
+    fun openLaunch(){
+        val intent = Intent(activity, LaunchActivity::class.java)
+        startActivity(intent)
+
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -32,7 +32,8 @@
         </activity>
         <activity
             android:name=".activities.SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.NYTMovies1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

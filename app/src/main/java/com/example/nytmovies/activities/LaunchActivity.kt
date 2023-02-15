@@ -18,6 +18,7 @@ class LaunchActivity : AppCompatActivity() {
         next.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.right, R.anim.left)
         }
 
     }
