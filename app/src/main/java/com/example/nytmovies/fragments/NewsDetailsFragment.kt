@@ -2,13 +2,13 @@ package com.example.nytmovies.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.example.nytmovies.R
 import com.example.nytmovies.activities.BookmarksActivity
 import com.example.nytmovies.activities.LaunchActivity
 import com.example.nytmovies.api.MovieApiService
@@ -35,6 +35,8 @@ class NewsDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
     }
 
     override fun onCreateView(
@@ -44,22 +46,25 @@ class NewsDetailsFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentNewsDetailsBinding.inflate(inflater, container, false)
         binding.bookmark.setOnClickListener {
-            openLaunch()
+            openBookmarkActivity()
         }
 
         return binding.root
     }
-    fun openLaunch(){
+    fun openBookmarkActivity(){
         val intent = Intent(activity, BookmarksActivity::class.java)
         startActivity(intent)
 
     }
 
 
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getMovieDetails(args.itemId) //passing the args
+        getMovieDetails(args.itemId) //receiving the args
 
     }
 
@@ -71,9 +76,9 @@ class NewsDetailsFragment : Fragment() {
                 when (movies.status) {
                     Status.SUCCESS -> {
                         //TODO Dismiss progress dialog
-
-                        val response = movies.data?.results
                         binding.progressBar2.visibility = View.GONE
+                        val response = movies.data?.results
+
                         response?.let {
                             binding.newFragment.visibility = View.VISIBLE
 

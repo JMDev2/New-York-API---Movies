@@ -44,7 +44,7 @@ class MovieFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setHasOptionsMenu(true)
+        setHasOptionsMenu(true) //sets the menu
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -102,6 +102,7 @@ class MovieFragment : Fragment() {
                     //progressbar
                     binding.progressBar.visibility = View.GONE
                     response?.let { response ->
+
                         filteredMovies = response //searchview
                         movieAdpter = MovieAdpter(response)
                         binding.movierecyclerView.visibility = View.VISIBLE

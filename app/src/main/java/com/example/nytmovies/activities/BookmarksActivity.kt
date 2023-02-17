@@ -2,6 +2,9 @@ package com.example.nytmovies.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nytmovies.R
 import com.example.nytmovies.adapter.FirebaseAdapter
@@ -20,6 +23,7 @@ class BookmarksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBookmarksBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
 
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -29,14 +33,13 @@ class BookmarksActivity : AppCompatActivity() {
         binding.bookmarkRecyclerview.adapter = adapter
         databaseReference = FirebaseDatabase.getInstance().getReference("result").child("result")
 
-
-
         eventListener = databaseReference!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 movieList.clear()
-                for (itemSnapshot in snapshot.children){
-                    val movies = itemSnapshot.getValue(com.example.nytmovies.models.Result::class.java)
-                    if (movies != null){
+                for (itemSnapshot in snapshot.children) {
+                    val movies =
+                        itemSnapshot.getValue(com.example.nytmovies.models.Result::class.java)
+                    if (movies != null) {
                         movieList.add(movies)
                     }
                 }
@@ -50,6 +53,9 @@ class BookmarksActivity : AppCompatActivity() {
         })
 
 
-
     }
+
+
+
+
 }
