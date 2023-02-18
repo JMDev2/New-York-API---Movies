@@ -37,4 +37,5 @@ holder.itemView.setOnClickListener {
 
 override fun getItemCount(): Int = movies.size
 
+
 }

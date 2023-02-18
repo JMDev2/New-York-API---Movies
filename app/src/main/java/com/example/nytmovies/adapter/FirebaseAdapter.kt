@@ -9,7 +9,7 @@ import com.example.nytmovies.models.Result
 import com.squareup.picasso.Picasso
 import javax.inject.Inject
 
-class FirebaseAdapter @Inject constructor(private val context: Context, private val movies: List<Result>):
+class FirebaseAdapter @Inject constructor(private val context: Context, private val movies: MutableList<Result>):
     RecyclerView.Adapter<FirebaseAdapter.FirebaseViewHolder>() {
 
 
@@ -34,6 +34,11 @@ class FirebaseAdapter @Inject constructor(private val context: Context, private 
         holder.itemView.setOnClickListener {
             onItemClick.invoke(movies[position].display_title)
         }
+    }
+
+    fun deleteItem(idex:Int){
+        movies.removeAt(idex)
+        notifyDataSetChanged()
     }
 
 
