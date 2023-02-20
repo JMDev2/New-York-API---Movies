@@ -5,6 +5,7 @@ import com.example.nytmovies.api.MovieApiImpl
 import com.example.nytmovies.api.MovieApiService
 import com.example.nytmovies.constants.Constants.Companion.BASE_URL
 import com.example.nytmovies.repository.MovieRepository
+import com.example.nytmovies.utils.NetworkInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +23,7 @@ object AppModule {
     @Provides
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient
         .Builder()
+        .addInterceptor(NetworkInterceptor())
         .build()
 
     @Singleton
